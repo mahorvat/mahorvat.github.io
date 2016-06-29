@@ -1,0 +1,591 @@
+<!DOCTYPE HTML>
+<!--
+	Hyperspace by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+    <title>HTML zadaća</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!--[if lte IE 8]>
+    <script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="assets/css/dkolari.css"/>
+    <link rel="stylesheet" href="assets/css/main.css"/>
+  
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="assets/css/ie8.css"/><![endif]-->
+    <script src=
+                    "https://sagecell.sagemath.org/static/jquery.min.js">
+    </script>
+    <script src=
+                    "https://sagecell.sagemath.org/static/embedded_sagecell.js">
+    </script>
+    <script>$(function () {
+        sagecell.makeSagecell({
+            inputLocation: 'div.compute',
+            evalButtonText: 'Pokreni Sage Cell'
+        });
+    });
+    </script>
+    <link rel="stylesheet" type="text/css" href=
+            "https://sagecell.sagemath.org/static/sagecell_embed.css">
+
+            <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+  MathJax.Hub.Config({ "HTML-CSS": {availableFonts: ["TeX"]},  MMLorHTML: {prefer: "HTML"}
+});
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+</head>
+	<body>
+
+		<!-- Sidebar -->
+			<section id="sidebar">
+				<div class="inner">
+					<nav>
+						<ul>
+							<li><a href="#intro">Tema</a></li>
+							<li><a href="#one">Što je kriptografija?</a></li>
+							<li><a href="#two">Primjeri</a></li>
+							<li><a href="#three">Kontakt</a></li>
+						</ul>
+					</nav>
+				</div>
+			</section>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+			<section id="main" class="wrapper">
+						<div class="inner">
+							<h1 class="major" align="center">Matematički softver - HTML zadaća</h1>
+
+				<!-- Intro -->
+				
+
+					<section id="intro" class="wrapper style1 fullscreen fade-up">
+						<div class="inner">
+							
+							<h2>Kriptografija</h2>
+							<blockquote>
+							"Cryptography is the ultimate form of non-violent direct action".
+							</blockquote>
+							<ul class="actions">
+								<li><a href="#one" class="button scrolly">Nauči više o kriptografiji!</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style2 spotlights">
+						<section>
+							<a href="#" class="image"><img src="images/slika1.jpg" alt="" data-position="center center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h3><font color="#330080">Kriptografija</font></h3>
+									<p align="justify">Kriptografija je znanstvena disciplina koja se bavi proučavanjem metoda za slanje poruka u takvom obliku da ih samo onaj kome su namijenjene može pročitati. 
+									</p>
+									
+								</div>
+							</div>
+						</section>
+						<section>
+							
+							<div class="content">
+								<div class="inner">
+									<h3><font color="#330080">Osnovni zadatak kriptografije</font></h3>
+									<p align="justify">Osnovni zadatak kriptografije je omogućiti dvjema osobama (pošiljaocu i primaocu) komuniciranje preko nesigurnog komunikacijskog kanala (telefonska linija, računalna mreža, ...) na način da treća osoba, koja može nadzirati komunikacijski kanal, ne može razumjeti njihove poruke.
+									Poruku koju pošiljaoc želi poslati primaocu zvat ćemo otvoreni tekst <i>(engl. plaintext)</i>. Pošiljaoc transformira otvoreni tekst koristeći unaprijed dogovoreni ključ. Taj postupak se naziva šifriranje, a dobiveni rezultat šifrat <i>(engl. ciphertext)</i> ili kriptogram. 
+									Nakon toga pošiljaoc pošalje šifrat preko nekog komunikacijskog kanala. Protivnik prisluškujući može doznati sadržaj šifrata, ali ne može odrediti otvoreni tekst. Za razliku od njega, primalac koji zna ključ kojim je šifrirana poruka može dešifrirati šifrat i odrediti otvoreni tekst.</p>
+									
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="images/slika2.jpg" alt="" data-position="top center" /></a>
+							<div class="content">
+								<div class="inner">
+									<h3><font color="#330080">Još neki pojmovi</font></h3>
+									<div>
+										<ul class="alt">
+												<li><i>Kriptoanaliza (dekriptiranje)</i> - proučavanje postupaka za čitanje skrivenih poruka bez poznavanja ključa.
+												</li>
+												<li><i>Kriptografski algoritam</i> - matematička funkcija za šifriranje i dešifriranje.</li>
+												<li><i>Prostor ključeva</i> - skup svih mogućih vrijednosti ključeva.</li>
+											</ul>
+								
+								</div>
+							</div>
+						</section>
+						<section>
+							
+							<div class="content">
+								<div class="inner">
+									<h3><font color="#330080">Kriptosustav</font></h3>
+									<p>Kriptosustav se sastoji od kriptografskog algoritma, te svih mogućih otvorenih tekstova, šifrata i ključeva. Dakle, imamo sljedeću formalnu definiciju.</p>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Definicija.</th>
+													
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>Kriptosustav je uređena petorka \((P, C, K, E, D)\) za koju vrijedi: <br />
+      1) \(P\) je konačan skup svih mogućih osnovnih elementa otvorenog teksta; <br />
+      2) \(C\) je konačan skup svih mogućih osnovnih elemenata šifrata;<br />
+      3) \(K\) je prostor ključeva, tj. konačan skup svih mogućih ključeva;<br />
+      4) Za svaki \(k \in K\) postoji funkcija šifriranja \(e_k  \in E\) i odgovarajuća funkcija dešifriranja \(d_K \in D\).<br /> Pritom su \(e_k : P → C\) i \(d_k : C → P\) funkcije sa svojstvom da je \(d_k(e_k(x)) = x \) za svaki otvoreni tekst \(x  \in P\).</td>
+													
+												</tr>
+												
+											</tbody>
+										</table>
+											<p align="justify">Najvažnije svojstvo u definiciji je \(d_k(e_k(x)) = x \). Iz njega slijedi da funkcije \(e_k\) moraju biti injekcije.</p>
+										
+									</div>
+
+
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="images/slika3.jpg" alt="" data-position="25% 25%" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Ultricies aliquam</h2>
+									<p align="justify">Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									
+								</div>
+							</div>
+						</section>
+						<section>
+							
+							<div class="content">
+								<div class="inner">
+									<h3><font color="#330080">Osnovni zadatak kriptografije</font></h3>
+									<p align="justify">Osnovni zadatak kriptografije je omogućiti dvjema osobama (pošiljaocu i primaocu) komuniciranje preko nesigurnog komunikacijskog kanala (telefonska linija, računalna mreža, ...) na način da treća osoba, koja može nadzirati komunikacijski kanal, ne može razumjeti njihove poruke.
+									Poruku koju pošiljaoc želi poslati primaocu zvat ćemo otvoreni tekst <i>(engl. plaintext)</i>. Pošiljaoc transformira otvoreni tekst koristeći unaprijed dogovoreni ključ. Taj postupak se naziva šifriranje, a dobiveni rezultat šifrat <i>(engl. ciphertext)</i> ili kriptogram. 
+									Nakon toga pošiljaoc pošalje šifrat preko nekog komunikacijskog kanala. Protivnik prisluškujući može doznati sadržaj šifrata, ali ne može odrediti otvoreni tekst. Za razliku od njega, primalac koji zna ključ kojim je šifrirana poruka može dešifrirati šifrat i odrediti otvoreni tekst.</p>
+									
+								</div>
+							</div>
+						</section>
+						<section>
+							<a href="#" class="image"><img src="images/slika4.jpg" alt="" data-position="25% 25%" /></a>
+							<div class="content">
+								<div class="inner">
+									<h2>Ultricies aliquam</h2>
+									<p align="justify">Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
+									
+								</div>
+							</div>
+						</section>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper style3 fade-up">
+						<div class="inner">
+							<h2>What we do</h2>
+							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<div id="main" class="container">
+
+            <section id="features">
+                <header class="style1">
+                    <h3 align="justify">PERMUTACIJE</h3>
+                    <p align="justify">
+						Postoje dva načina na koja možemo shvatiti pojam permutacije - u aktivnom i pasivnom smislu. Neka je $X$ konačan skup. 
+						Permutacija od $X$ (u aktivnom smislu) je bijekcija s $X$ u $X$. Pretpostavimo da su elementi u $X$ uređeni, 
+						tj. $X = \{x_1, x_2, \ldots, x_n\}.$ Tada je pasivna reprezentacija permutacije $\pi$ uređena $n-$torka 
+						$(\pi(x_1), \pi(x_2), \ldots, \pi(x_n)).$ Katkad se koristi i ovaj zapis:
+						\begin{equation}
+							\begin{pmatrix}
+								x_1 & x_2 & \ldots & x_n \\
+								y_1 & y_2 & \ldots & y_n
+							\end{pmatrix},
+						\end{equation}
+						gdje je $y_i = \pi(x_i), \; i = 1, 2, \ldots, n.$
+						Skup svih permutacija od $n$ elemenata označavamo sa $S_n.$
+					</p>
+                </header>
+                <div class="feature-list">
+                    <!-- Primjer -->
+                    <div>
+                        <div class="row">
+                            <h3 class="icon fa-code">Broj permutacija $n-$članog skupa je $n!$</h3>
+                        </div>
+                        <div class="row">
+                            <p class="example-text">Izračunajmo za određeni $n \in \{1, 2, \ldots, 20\}$ koliko ima permutacija $n-$člani skup. <br/> 
+							Prikažimo jednu permutaciju kao segmente koji povezuju svaki element $1, 2, \ldots, n$ s njegovom slikom na paralelnoj liniji.</p>
+                        </div>
+                        <div class="row">
+                            <div class="compute">
+                                <script type="text/x-sage">
+@interact
+def _(n=slider(1,20,1,10,'$n$')):
+	fakt = factorial(n)
+	pretty_print(html('$P\;=\;%s$'%latex(fakt)))
+pretty_print(html('$Prikaz \; permutacije:$'))	
+Permutations(20).random_element().show(representation = "braid", orientation='portrait')										
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+				<header class="style1">
+					<p align="justify">
+						Neka je 
+						\begin{equation}
+							p = 
+							\begin{pmatrix}
+								1 & 2 & \ldots & n \\
+								p(1) & p(2) & \ldots & p(n)
+							\end{pmatrix} \in S_n.
+						\end{equation}
+						Svaki par $(i, j)$ takav da vrijedi $i < j$ i $p(j) < p(i)$ naziva se <b>inverzija</b> u permutaciji $p.$
+						Broj svih inverzija u permutaciji $p$ označava se $I(p).$ Ukoliko je $I(p)$ paran broj, kažemo da je permutacija parna,
+						u suprotnom, kažemo da je permutacija neparna. <br/>
+						Za $p \in S_n$ definira se predznak kao $sign\,p := (-1)^{I(p)}.$
+					</p>
+				</header>	
+					<!-- Primjer -->
+                    <div>
+                        <div class="row">
+                            <h3 class="icon fa-code">Broj permutacija $n-$članog skupa je $n!$</h3>
+                        </div>
+                        <div class="row">
+                            <p class="example-text">Izračunajmo za određeni $n \in \{1, 2, \ldots, 20\}$ koliko ima permutacija $n-$člani skup. <br/> 
+							Prikažimo jednu permutaciju kao segmente koji povezuju svaki element $1, 2, \ldots, n$ s njegovom slikom na paralelnoj liniji.</p>
+                        </div>
+                        <div class="row">
+                            <div class="compute">
+                                <script type="text/x-sage">
+@interact
+def _(n=slider(1,20,1,10,'$n$')):
+	fakt = factorial(n)
+	pretty_print(html('$P\;=\;%s$'%latex(fakt)))
+pretty_print(html('$Prikaz \; permutacije:$'))	
+Permutations(20).random_element().show(representation = "braid", orientation='portrait')										
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+				<header class="style1">
+					<p align="justify">
+						Postoji i kraći zapis permutacije, tzv. <b>ciklički zapis</b>. Uvedimo pojam ciklusa. Kažemo da je permutacija $\pi$ <b>ciklus</b>
+						ili <b>ciklička permutacija</b> ako vrijedi $x_1 \mapsto x_2 \mapsto \ldots \mapsto x_n \mapsto x_1,$ gdje su $x_1, x_2, \ldots, x_n$
+						elementi od $X$ u nekom redoslijedu. Pišemo $(x_1 x_2 \ldots x_n).$
+					</p>
+				</header>
+					
+					<!-- Primjer -->
+                    <div>
+                        <div class="row">
+                            <h3 class="icon fa-code">Zapišimo permutacije $n-$članog skupa u cikličkoj notaciji.</h3>
+                        </div>
+                        <div class="row">
+                            <p class="example-text">Prikažimo jednu permutaciju kao skup usmjerenih ciklusa.</p>
+                        </div>
+                        <div class="row">
+                            <div class="compute">
+                                <script type="text/x-sage">
+@interact
+def _(n = slider(1,6,1,1)):
+	P = SymmetricGroup(n) 
+	C = P.list()
+	pretty_print(html('$P\;=\;%s$'%latex(C)))
+pretty_print(html('$Prikaz \; permutacije:$'))	
+Permutations(6).random_element().show(representation = "cycles")
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+					
+					<!-- Primjer -->
+                    <div>
+                        <div class="row">
+                            <h3 class="icon fa-code">Ispišimo disjunktne cikluse svih permutacija $6-$članog skupa.</h3>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="compute">
+                                <script type="text/x-sage">
+P = Permutations(6)
+ciklusi = []
+for i in P:
+	ciklusi.append(i.to_cycles())
+pretty_print(html('$P\;=\;%s$'%latex(ciklusi)))
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+					
+				<header class="style1">
+					<p align="justify">
+						Sad kad znamo što su ciklusi, uvodimo <b>Stirlingove brojeve prve vrste</b>. Oni nam govore na koliko načina možemo $n$ elemenata
+						poredati u $k$ ciklusa. Označavamo ih sa $s(n, k),$ pri čemu su $n, k \in \mathbb{N_0}.$
+					</p>
+				</header>
+				<!-- Primjer -->
+                    <div>
+                        <div class="row">
+                            <h3 class="icon fa-code">Nađimo $n-$ti Stirlingov broj prve vrste $k-$tog ciklusa.</h3>
+                        </div>
+						<div class="row">
+                            <p class="example-text">Prikažimo Stirlingov trokut za cikluse za $n, \; k \in \{1, 2, \ldots, 10\}$.</p>
+                        </div>
+                        <div class="row">
+                            <div class="compute">
+                                <script type="text/x-sage">
+@interact 
+def _(n = input_box(5, "Klikni da promijeniš n."), k = input_box(4, "Klikni da promijeniš k.")):
+	s = stirling_number1(n, k)
+	pretty_print(html('$n-ti \; Stirlingov \; broj \; prve \; vrste \; k-tog \; ciklusa \; je \; %s$'%latex(s)))
+	
+pretty_print(html('$Stirlingov \; trokut \; za \; cikluse$'))
+razmak = "                  "
+print "n\k|" + razmak[:11],
+for n in range(10):
+    print str(n) + razmak[:13],
+print "\n __ | __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  "
+for n in range(10):
+    for k in range(11):
+        if k==0:
+            print (str(n) + razmak[:4] + "|"),
+        else:
+            ispis = str(stirling_number1(n,k-1))
+            if ispis != "0" or k==1:
+                print (razmak[:14-len(ispis)*2] + ispis),
+            else:
+                print " ",
+    print
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+				<header class="style1">
+					<p align="justify">
+						Neka je $S$ skup od $n$ elemenata, $k \le n.$ Za uređenu $k-$torku $(x_1, x_2, \ldots, x_k)$ međusobno različitih elemenata iz $S$
+						kažemo da je <b>$k-$permutacija</b> i pišemo $P(n, k).$
+					</p>
+				</header>
+					
+                    <!-- Primjer -->
+                    <div>
+                        <div class="row">
+                            <h3 class="icon fa-code">Broj $k-$permutacija $n-$članog skupa je $\frac{n!}{(n-k)!}.$</h3>
+                        </div>
+                        <div class="row">
+                            <p class="example-text">Izračunajmo koliko ima $k-$permutacija $n-$članog skupa za $n \in \{1, 2, \ldots, 10\}, k \le n.$</p>
+                        </div>
+                        <div class="row">
+                            <div class="compute">
+                                <script type="text/x-sage">
+@interact
+def _(n=slider(1,10,1,5,'$n$'),k=slider(1,10,1,5,'$k$')):
+    if k <= n:
+        f = factorial(n)/factorial(n-k)
+        pretty_print(html('$P(n, k)\;=\;%s$'%latex(f)))
+    else:
+        pretty_print(html('Greška!'))
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+				
+				<header class="style1">
+					<h3 align="justify">MULTISKUP</h3>
+					<p align="justify">
+						<b>Konačni multiskup $M$</b> na skupu $S$ je uređeni par $M = (S, m),$ gdje je $m : S \rightarrow \mathbb{N_0}$ funkcija za koju
+						je $\sum_{x \in S} m(x)$ konačan broj. Za $x \in S$ se broj $m(x)$ zove <b>kratnost</b> od $x$. Broj elemenata multiskupa $M,$ u oznaci
+						$\lvert M \rvert,$ je $\sum_{x \in S} m(x).$ 
+					</p>
+					<p align="justify">
+						Sada uvodimo pojam permutacije multiskupova. Neka je $M = (S, m)$ multiskup. Svaku uređenu $n-$torku $(x_1, x_2, \ldots, x_n),$ 
+						gdje su $x_i \in S, \; i \in \{1, 2, \ldots, n\}$ zovemo <b>permutacija multiskupa</b> $M.$ Ovdje je dozvoljeno da neki elementi 
+						budu isti, ali ne smije biti više ponavljanja od kratnosti tog elementa.
+					</p>
+					<p align="justify">
+						<b>TEOREM</b> <Br/>
+						Neka je $M = \{x_1^{n_1}, x_2^{n_2}, \ldots, x_k^{n_k}\}$ zadani multiskup. Neka je $n = n_1 + \ldots + n_k.$ Tada je broj
+						permutacija od $M$ jednak $$\frac{n!}{n_1!n_2! \cdots n_k!}.$$ <br/>
+						Koristi se i oznaka $$\binom{n}{n_1, \ldots, n_k} = \frac{n!}{n_1!n_2! \cdots n_k!}$$ i taj broj, uz $n = n_1 + \ldots + n_k$ 
+						zovemo <b>multinomni koeficijent.</b>
+					</p>
+				</header>
+				
+				<!-- Primjer -->
+                    <div>
+                        <div class="row">
+                            <h3 class="icon fa-code">Koliko se različitih riječi može formirati iz neke zadane riječi?</h3>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="compute">
+                                <script type="text/x-sage">
+@interact
+def _(P = input_box('MATEMATIKA',label='Klikni da promijeniš riječ!',type=str)):
+	list1 = []
+	for i in P:
+		j = str(i)
+		list1.append(j)
+	nova_p = Permutations(list1)
+	broj = nova_p.cardinality()	
+	pretty_print(html('$Broj \; riječi \; koje \; se \; mogu \; formirati \; iz \; zadane \; riječi \; je \; %s.$' %latex(broj)))
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+					
+				<header class="style1">
+					<h3 align="justify">DERANŽMANI</h3>
+					<p align="justify">
+						Postavlja se sljedeće prirodno pitanje. Koliko ima permutacija $f : \{1, 2, \ldots, n\} \rightarrow \{1, 2, \ldots, n\}$
+						koje nemaju fiksnih točaka, tj. za koje je $f(i) \ne i$ za svaki $i \in \{1, 2, \ldots, n\}$? <br/>
+						Broj takvih permutacija označavamo s $D_n$ i zovemo <b>broj deranžmana</b> od $n$ elemenata. Po definiciji stavljamo
+						$D_0 = 1,$ $D_1 = 0,$ $D_2 = 1.$
+					</p>
+					<p align="justify"><b>TEOREM</b> <br/>
+					Broj deranžmana $n-$skupa je dan formulom
+					\begin{equation}
+						d(n) = n! \bigg( \sum_{i=0}^n \frac{(-1)^i}{i!} \bigg) = \bigg{\lfloor} \frac{n!}{e} \bigg{\rfloor}, 
+					\end{equation}
+					gdje je $n \in \mathbb{N}$, a $\lfloor \cdot \rfloor$ je oznaka za najbliži cijeli broj.
+					</p>
+				</header>
+					
+					<!-- Primjer -->
+                    <div>
+                        <div class="row">
+                            <h3 class="icon fa-code">Izračunajte broj deranžmana 4-skupa.</h3>
+                        </div>
+                        <div class="row">
+                            <p class="example-text">Ispišite fiksne točke permutacija 4-skupa. <br/>
+							Koliki je broj fiksnih točaka za pojedinu permutaciju? <br/>
+							Provjerite je li broj permutacija bez fiksnih točaka jednak broju deranžmana koristeći funkcije Derangements() i Permutations().
+							</p> 
+                        </div>
+                        <div class="row">
+                            <div class="compute">
+                                <script type="text/x-sage">
+D = Derangements(4)
+broj = D.cardinality()
+pretty_print(html('$Broj \; deranžmana \; 4-skupa \; je \; %s$'%latex(broj)))
+
+pretty_print(html('$Ispis \; permutacija, \; fiksnih \; točaka \; i \; koliko \; ima \; fiksnih \; točaka: $'))
+P = Permutations(4)
+for i in P:
+	print "Permutacija: ", i, ",", "Fiksne točke: ", i.fixed_points(), ",", "Broj fiksnih točaka: ", i.number_of_fixed_points()
+
+broj = 0
+for i in P:
+	for j in D:
+		if i.number_of_fixed_points() == 0 and j == i: broj +=1
+
+print "Broj permutacija bez fiksnih točaka: ", broj
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+				
+                </div>
+        </section>
+    </div>
+						</div>
+					</section>
+
+				<!-- Three -->
+					<section id="three" class="wrapper style1 fade-up">
+						<div class="inner">
+							<h2>Kontaktiraj nas!</h2>
+							<p>Pošalji nam mail na <a href="mailto:info@kriptografija.hr">info@kriptografija.hr</a> ili nam se obrati putem kontakt forme u nastavku.</p>
+							<div class="split style1">
+								<section>
+									<form method="post" action="#">
+										<div class="row uniform">
+											<div class="6u 12u$(xsmall)">
+												<input type="text" name="demo-name" id="demo-name" value="" placeholder="Ime" />
+											</div>
+											<div class="6u$ 12u$(xsmall)">
+												<input type="email" name="demo-email" id="demo-email" value="" placeholder="E-mail" />
+											</div>
+											
+											<div class="6u 12u$(small)">
+												<input type="checkbox" id="demo-copy" name="demo-copy">
+												<label for="demo-copy">Pošalji kopiju</label>
+											</div>
+											
+											<div class="12u$">
+												<textarea name="demo-message" id="demo-message" placeholder="Tekst poruke" rows="6"></textarea>
+											</div>
+											<div class="12u$">
+												<ul class="actions">
+													<li><input type="submit" value="Pošalji poruku" class="special" /></li>
+													<li><input type="reset" value="Obriši" /></li>
+												</ul>
+											</div>
+										</div>
+									</form>
+								</section>
+
+								<section>
+									<ul class="contact">
+										<li>
+											<h3>Adresa</h3>
+											<span>PMF Zagreb<br />
+											Bijenička cesta 30<br />
+											10 000 Zagreb, Hrvatska</span>
+										</li>
+										
+										<li>
+											<h3>Telefon</h3>
+											<span>(385) 91 1234 567</span>
+										</li>
+										<li>
+											<h3>Društvene mreže</h3>
+											<ul class="icons">
+											<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+												<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+
+											</ul>
+										</li>
+									</ul>
+								</section>
+							</div>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer" class="wrapper style1-alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Magdalena Horvat.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/skel-viewport.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="assets/js/main.js"></script>
+		
+	</body>
+</html>
