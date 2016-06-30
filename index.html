@@ -25,6 +25,7 @@
     <script>$(function () {
         sagecell.makeSagecell({
             inputLocation: 'div.compute',
+            template: sagecell.templates.restricted,
             evalButtonText: 'Pokreni Sage Cell'
         });
     });
@@ -179,333 +180,146 @@
 								</div>
 							</div>
 						</section>
-						<section>
-							<a href="#" class="image"><img src="images/slika4.jpg" alt="" data-position="25% 25%" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Ultricies aliquam</h2>
-									<p align="justify">Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									
-								</div>
-							</div>
-						</section>
-						
+												
 					</section>
 
 				<!-- Two -->
 					<section id="two" class="wrapper style3 fade-up">
 						<div class="inner">
-							<h2>What we do</h2>
-							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
+							<h2>Primjeri</h2>
+							<p>neki tekst</p>
 							<div id="main" class="container">
-
-            <section id="features">
-                <header class="style1">
-                    <h3 align="justify">PERMUTACIJE</h3>
-                    <p align="justify">
-						Postoje dva načina na koja možemo shvatiti pojam permutacije - u aktivnom i pasivnom smislu. Neka je $X$ konačan skup. 
-						Permutacija od $X$ (u aktivnom smislu) je bijekcija s $X$ u $X$. Pretpostavimo da su elementi u $X$ uređeni, 
-						tj. $X = \{x_1, x_2, \ldots, x_n\}.$ Tada je pasivna reprezentacija permutacije $\pi$ uređena $n-$torka 
-						$(\pi(x_1), \pi(x_2), \ldots, \pi(x_n)).$ Katkad se koristi i ovaj zapis:
-						\begin{equation}
-							\begin{pmatrix}
-								x_1 & x_2 & \ldots & x_n \\
-								y_1 & y_2 & \ldots & y_n
-							\end{pmatrix},
-						\end{equation}
-						gdje je $y_i = \pi(x_i), \; i = 1, 2, \ldots, n.$
-						Skup svih permutacija od $n$ elemenata označavamo sa $S_n.$
-					</p>
-                </header>
-                <div class="feature-list">
-                    <!-- Primjer -->
-                    <div>
-                        <div class="row">
-                            <h3 class="icon fa-code">Broj permutacija $n-$članog skupa je $n!$</h3>
-                        </div>
-                        <div class="row">
-                            <p class="example-text">Izračunajmo za određeni $n \in \{1, 2, \ldots, 20\}$ koliko ima permutacija $n-$člani skup. <br/> 
-							Prikažimo jednu permutaciju kao segmente koji povezuju svaki element $1, 2, \ldots, n$ s njegovom slikom na paralelnoj liniji.</p>
-                        </div>
-                        <div class="row">
-                            <div class="compute">
+						</header>
+                		<div class="feature-list">
+                    	<!-- Primjer -->
+                    		<div>
+                        		<div class="row">
+                            		<h3>prvi primjer</h3>
+                        		</div>
+                        		<div class="row">
+                            		<p align="justify">opis primjera</p>
+                        		</div>
+                        		<div class="row">
+                            	<div class="compute">
                                 <script type="text/x-sage">
 @interact
-def _(n=slider(1,20,1,10,'$n$')):
-	fakt = factorial(n)
-	pretty_print(html('$P\;=\;%s$'%latex(fakt)))
-pretty_print(html('$Prikaz \; permutacije:$'))	
-Permutations(20).random_element().show(representation = "braid", orientation='portrait')										
-                                </script>
-                            </div>
-                        </div>
-                    </div>
 
-				<header class="style1">
-					<p align="justify">
-						Neka je 
-						\begin{equation}
-							p = 
-							\begin{pmatrix}
-								1 & 2 & \ldots & n \\
-								p(1) & p(2) & \ldots & p(n)
-							\end{pmatrix} \in S_n.
-						\end{equation}
-						Svaki par $(i, j)$ takav da vrijedi $i < j$ i $p(j) < p(i)$ naziva se <b>inverzija</b> u permutaciji $p.$
-						Broj svih inverzija u permutaciji $p$ označava se $I(p).$ Ukoliko je $I(p)$ paran broj, kažemo da je permutacija parna,
-						u suprotnom, kažemo da je permutacija neparna. <br/>
-						Za $p \in S_n$ definira se predznak kao $sign\,p := (-1)^{I(p)}.$
-					</p>
-				</header>	
-					<!-- Primjer -->
-                    <div>
-                        <div class="row">
-                            <h3 class="icon fa-code">Broj permutacija $n-$članog skupa je $n!$</h3>
-                        </div>
-                        <div class="row">
-                            <p class="example-text">Izračunajmo za određeni $n \in \{1, 2, \ldots, 20\}$ koliko ima permutacija $n-$člani skup. <br/> 
-							Prikažimo jednu permutaciju kao segmente koji povezuju svaki element $1, 2, \ldots, n$ s njegovom slikom na paralelnoj liniji.</p>
-                        </div>
-                        <div class="row">
-                            <div class="compute">
-                                <script type="text/x-sage">
+def _(key1 =input_box(3), key2 = input_box(0)):
 
-def cezar_kript(str):
-    s = ''
-    for c in str:
-        n = ord(c)-65
-        n += 3
-        n %= 26
-        s += chr( n + 65 )
-    return s
-									
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-				<header class="style1">
-					<p align="justify">
-						Postoji i kraći zapis permutacije, tzv. <b>ciklički zapis</b>. Uvedimo pojam ciklusa. Kažemo da je permutacija $\pi$ <b>ciklus</b>
-						ili <b>ciklička permutacija</b> ako vrijedi $x_1 \mapsto x_2 \mapsto \ldots \mapsto x_n \mapsto x_1,$ gdje su $x_1, x_2, \ldots, x_n$
-						elementi od $X$ u nekom redoslijedu. Pišemo $(x_1 x_2 \ldots x_n).$
-					</p>
-				</header>
-					
-					<!-- Primjer -->
-                    <div>
-                        <div class="row">
-                            <h3 class="icon fa-code">Zapišimo permutacije $n-$članog skupa u cikličkoj notaciji.</h3>
-                        </div>
-                        <div class="row">
-                            <p class="example-text">Prikažimo jednu permutaciju kao skup usmjerenih ciklusa.</p>
-                        </div>
-                        <div class="row">
-                            <div class="compute">
-                                <script type="text/x-sage">
-@interact
-def _(n = slider(1,6,1,1)):
-	P = SymmetricGroup(n) 
-	C = P.list()
-	pretty_print(html('$P\;=\;%s$'%latex(C)))
-pretty_print(html('$Prikaz \; permutacije:$'))	
-Permutations(6).random_element().show(representation = "cycles")
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-					
-					<!-- Primjer -->
-                    <div>
-                        <div class="row">
-                            <h3 class="icon fa-code">Ispišimo disjunktne cikluse svih permutacija $6-$članog skupa.</h3>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="compute">
-                                <script type="text/x-sage">
-P = Permutations(6)
-ciklusi = []
-for i in P:
-	ciklusi.append(i.to_cycles())
-pretty_print(html('$P\;=\;%s$'%latex(ciklusi)))
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-					
-				<header class="style1">
-					<p align="justify">
-						Sad kad znamo što su ciklusi, uvodimo <b>Stirlingove brojeve prve vrste</b>. Oni nam govore na koliko načina možemo $n$ elemenata
-						poredati u $k$ ciklusa. Označavamo ih sa $s(n, k),$ pri čemu su $n, k \in \mathbb{N_0}.$
-					</p>
-				</header>
-				<!-- Primjer -->
-                    <div>
-                        <div class="row">
-                            <h3 class="icon fa-code">Nađimo $n-$ti Stirlingov broj prve vrste $k-$tog ciklusa.</h3>
-                        </div>
-						<div class="row">
-                            <p class="example-text">Prikažimo Stirlingov trokut za cikluse za $n, \; k \in \{1, 2, \ldots, 10\}$.</p>
-                        </div>
-                        <div class="row">
-                            <div class="compute">
-                                <script type="text/x-sage">
-@interact 
-def _(n = input_box(5, "Klikni da promijeniš n."), k = input_box(4, "Klikni da promijeniš k.")):
-	s = stirling_number1(n, k)
-	pretty_print(html('$n-ti \; Stirlingov \; broj \; prve \; vrste \; k-tog \; ciklusa \; je \; %s$'%latex(s)))
-	
-pretty_print(html('$Stirlingov \; trokut \; za \; cikluse$'))
-razmak = "                  "
-print "n\k|" + razmak[:11],
-for n in range(10):
-    print str(n) + razmak[:13],
-print "\n __ | __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  __  "
-for n in range(10):
-    for k in range(11):
-        if k==0:
-            print (str(n) + razmak[:4] + "|"),
-        else:
-            ispis = str(stirling_number1(n,k-1))
-            if ispis != "0" or k==1:
-                print (razmak[:14-len(ispis)*2] + ispis),
-            else:
-                print " ",
-    print
+    alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    message = 'MYSECRET'
 
+    # ENCRYPT MESSAGES
+    
+    encrypted = ''
+    for c in message:
+        loc = alph.find (c)
+        encrypted += alph [ Mod ( key1 * loc + key2 ,26)]
+    
+    print message, '->',encrypted									
                                 </script>
-                            </div>
-                        </div>
-                    </div>
-				<header class="style1">
-					<p align="justify">
-						Neka je $S$ skup od $n$ elemenata, $k \le n.$ Za uređenu $k-$torku $(x_1, x_2, \ldots, x_k)$ međusobno različitih elemenata iz $S$
-						kažemo da je <b>$k-$permutacija</b> i pišemo $P(n, k).$
-					</p>
-				</header>
-					
-                    <!-- Primjer -->
-                    <div>
-                        <div class="row">
-                            <h3 class="icon fa-code">Broj $k-$permutacija $n-$članog skupa je $\frac{n!}{(n-k)!}.$</h3>
-                        </div>
-                        <div class="row">
-                            <p class="example-text">Izračunajmo koliko ima $k-$permutacija $n-$članog skupa za $n \in \{1, 2, \ldots, 10\}, k \le n.$</p>
-                        </div>
-                        <div class="row">
+                            	</div>
+                        		</div>
+                    		</div>
+
+						
+						<!-- Primjer -->
+                    	<div>
+                        	<div class="row">
+                            	<h3>drugi primjer</h3>
+                        	</div>
+                        	<div class="row">
+                            <p align="justify">opis - drugi primjer</p>
+                        	</div>
+                        	<div class="row">
                             <div class="compute">
-                                <script type="text/x-sage">
-@interact
-def _(n=slider(1,10,1,5,'$n$'),k=slider(1,10,1,5,'$k$')):
-    if k <= n:
-        f = factorial(n)/factorial(n-k)
-        pretty_print(html('$P(n, k)\;=\;%s$'%latex(f)))
-    else:
-        pretty_print(html('Greška!'))
-                                </script>
+                            <script type="text/x-sage">
+def encrypt_hill(message, key11, key12, key21, key22, key1, key2):
+    alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+    encrypted = ''    
+    for i in range(0,len(message),2):
+        digraph = message[i:i+2]
+        encrypted += alph[Mod(key11*alph.find(digraph[0])
+                    +key12*alph.find(digraph[1]) + key1,26)]
+        encrypted += alph[Mod(key21*alph.find(digraph[0])
+                    +key22*alph.find(digraph[1]) + key2,26)]
+    print message,'->',encrypted
+
+
+# encrypt using the matrix A=[3, 5; 7, 2] and b=[1,1]
+encrypt_hill('SECRET', 3,5,7,2, 1,1)
+
+# decrypt using its inverse A^-1=[8, 19; 11, 25] and -A^-1b=[25,16]  (26)
+encrypt_hill('XFOXEP', 8,19,11,25, 25,16)
+                            </script>
                             </div>
-                        </div>
-                    </div>
+                        	</div>
+                    	</div>
+
+                    	<!-- Primjer -->
+                    	<div>
+                        	<div class="row">
+                            	<h3>treci primjer</h3>
+                        	</div>
+                        	<div class="row">
+                            <p align="justify">opis - treci primjer</p>
+                        	</div>
+                        	<div class="row">
+                            <div class="compute">
+                            <script type="text/x-sage">
+# Discrete logarithm for g^x=h (p) by brute force
+
+def br_fr(h,g,p):
+    for x in range(p-1):
+        if Mod(g,p)^x == Mod(h,p):
+            print 'x= ',x
+            break
+
+
+br_fr(29,21,107)
+                            </script>
+                            </div>
+                        	</div>
+                    	</div>
+
+                    	<!-- Primjer -->
+                    	<div>
+                        	<div class="row">
+                            	<h3>4. primjer</h3>
+                        	</div>
+                        	<div class="row">
+                            <p align="justify">opis - 4. primjer</p>
+                        	</div>
+                        	<div class="row">
+                            <div class="compute">
+                            <script type="text/x-sage">
+# Discrete logarithm for g^x=h (p) by baby-step giant-step
+
+def baby_giant(h,g,p):
+    baby = [1]
+    giant = [h]
+    n = 1+floor(sqrt(p-1))
+
+    for i in range(1,n):
+        baby.append( Mod(baby[i-1]*g,p) )
+        
+    g = Mod(g,p)^-n
+    for j in range(1,n):
+        giant.append( Mod(giant[j-1]*g,p) )
+    
+    for inters in set(baby).intersection( set(giant) ):
+        print 'i =', baby.index(inters)
+        print 'j =', giant.index(inters)
+        print 'x =',  baby.index(inters)+n*giant.index(inters)
+    
+baby_giant(29,21,107)
+                            </script>
+                            </div>
+                        	</div>
+                    	</div>
 				
-				<header class="style1">
-					<h3 align="justify">MULTISKUP</h3>
-					<p align="justify">
-						<b>Konačni multiskup $M$</b> na skupu $S$ je uređeni par $M = (S, m),$ gdje je $m : S \rightarrow \mathbb{N_0}$ funkcija za koju
-						je $\sum_{x \in S} m(x)$ konačan broj. Za $x \in S$ se broj $m(x)$ zove <b>kratnost</b> od $x$. Broj elemenata multiskupa $M,$ u oznaci
-						$\lvert M \rvert,$ je $\sum_{x \in S} m(x).$ 
-					</p>
-					<p align="justify">
-						Sada uvodimo pojam permutacije multiskupova. Neka je $M = (S, m)$ multiskup. Svaku uređenu $n-$torku $(x_1, x_2, \ldots, x_n),$ 
-						gdje su $x_i \in S, \; i \in \{1, 2, \ldots, n\}$ zovemo <b>permutacija multiskupa</b> $M.$ Ovdje je dozvoljeno da neki elementi 
-						budu isti, ali ne smije biti više ponavljanja od kratnosti tog elementa.
-					</p>
-					<p align="justify">
-						<b>TEOREM</b> <Br/>
-						Neka je $M = \{x_1^{n_1}, x_2^{n_2}, \ldots, x_k^{n_k}\}$ zadani multiskup. Neka je $n = n_1 + \ldots + n_k.$ Tada je broj
-						permutacija od $M$ jednak $$\frac{n!}{n_1!n_2! \cdots n_k!}.$$ <br/>
-						Koristi se i oznaka $$\binom{n}{n_1, \ldots, n_k} = \frac{n!}{n_1!n_2! \cdots n_k!}$$ i taj broj, uz $n = n_1 + \ldots + n_k$ 
-						zovemo <b>multinomni koeficijent.</b>
-					</p>
-				</header>
-				
-				<!-- Primjer -->
-                    <div>
-                        <div class="row">
-                            <h3 class="icon fa-code">Koliko se različitih riječi može formirati iz neke zadane riječi?</h3>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="compute">
-                                <script type="text/x-sage">
-@interact
-def _(P = input_box('MATEMATIKA',label='Klikni da promijeniš riječ!',type=str)):
-	list1 = []
-	for i in P:
-		j = str(i)
-		list1.append(j)
-	nova_p = Permutations(list1)
-	broj = nova_p.cardinality()	
-	pretty_print(html('$Broj \; riječi \; koje \; se \; mogu \; formirati \; iz \; zadane \; riječi \; je \; %s.$' %latex(broj)))
-                                </script>
-                            </div>
-                        </div>
-                    </div>
 					
-				<header class="style1">
-					<h3 align="justify">DERANŽMANI</h3>
-					<p align="justify">
-						Postavlja se sljedeće prirodno pitanje. Koliko ima permutacija $f : \{1, 2, \ldots, n\} \rightarrow \{1, 2, \ldots, n\}$
-						koje nemaju fiksnih točaka, tj. za koje je $f(i) \ne i$ za svaki $i \in \{1, 2, \ldots, n\}$? <br/>
-						Broj takvih permutacija označavamo s $D_n$ i zovemo <b>broj deranžmana</b> od $n$ elemenata. Po definiciji stavljamo
-						$D_0 = 1,$ $D_1 = 0,$ $D_2 = 1.$
-					</p>
-					<p align="justify"><b>TEOREM</b> <br/>
-					Broj deranžmana $n-$skupa je dan formulom
-					\begin{equation}
-						d(n) = n! \bigg( \sum_{i=0}^n \frac{(-1)^i}{i!} \bigg) = \bigg{\lfloor} \frac{n!}{e} \bigg{\rfloor}, 
-					\end{equation}
-					gdje je $n \in \mathbb{N}$, a $\lfloor \cdot \rfloor$ je oznaka za najbliži cijeli broj.
-					</p>
-				</header>
-					
-					<!-- Primjer -->
-                    <div>
-                        <div class="row">
-                            <h3 class="icon fa-code">Izračunajte broj deranžmana 4-skupa.</h3>
-                        </div>
-                        <div class="row">
-                            <p class="example-text">Ispišite fiksne točke permutacija 4-skupa. <br/>
-							Koliki je broj fiksnih točaka za pojedinu permutaciju? <br/>
-							Provjerite je li broj permutacija bez fiksnih točaka jednak broju deranžmana koristeći funkcije Derangements() i Permutations().
-							</p> 
-                        </div>
-                        <div class="row">
-                            <div class="compute">
-                                <script type="text/x-sage">
-D = Derangements(4)
-broj = D.cardinality()
-pretty_print(html('$Broj \; deranžmana \; 4-skupa \; je \; %s$'%latex(broj)))
-
-pretty_print(html('$Ispis \; permutacija, \; fiksnih \; točaka \; i \; koliko \; ima \; fiksnih \; točaka: $'))
-P = Permutations(4)
-for i in P:
-	print "Permutacija: ", i, ",", "Fiksne točke: ", i.fixed_points(), ",", "Broj fiksnih točaka: ", i.number_of_fixed_points()
-
-broj = 0
-for i in P:
-	for j in D:
-		if i.number_of_fixed_points() == 0 and j == i: broj +=1
-
-print "Broj permutacija bez fiksnih točaka: ", broj
-                                </script>
-                            </div>
-                        </div>
-                    </div>
-				
-                </div>
-        </section>
-    </div>
-						</div>
 					</section>
 
 				<!-- Three -->
