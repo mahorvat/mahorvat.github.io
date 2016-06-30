@@ -269,12 +269,16 @@ Permutations(20).random_element().show(representation = "braid", orientation='po
                         <div class="row">
                             <div class="compute">
                                 <script type="text/x-sage">
-@interact
-def _(n=slider(1,20,1,10,'$n$')):
-	fakt = factorial(n)
-	pretty_print(html('$P\;=\;%s$'%latex(fakt)))
-pretty_print(html('$Prikaz \; permutacije:$'))	
-Permutations(20).random_element().show(representation = "braid", orientation='portrait')										
+
+def cezar_kript(str):
+    s = ''
+    for c in str:
+        n = ord(c)-65
+        n += 3
+        n %= 26
+        s += chr( n + 65 )
+    return s
+									
                                 </script>
                             </div>
                         </div>
