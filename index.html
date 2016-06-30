@@ -157,60 +157,69 @@
 								</div>
 							</div>
 						</section>
-						<section>
-							<a href="#" class="image"><img src="images/slika3.jpg" alt="" data-position="25% 25%" /></a>
-							<div class="content">
-								<div class="inner">
-									<h2>Ultricies aliquam</h2>
-									<p align="justify">Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-									
-									
-								</div>
-							</div>
-						</section>
-						<section>
-							
-							<div class="content">
-								<div class="inner">
-									<h3><font color="#330080">Osnovni zadatak kriptografije</font></h3>
-									<p align="justify">Osnovni zadatak kriptografije je omogućiti dvjema osobama (pošiljaocu i primaocu) komuniciranje preko nesigurnog komunikacijskog kanala (telefonska linija, računalna mreža, ...) na način da treća osoba, koja može nadzirati komunikacijski kanal, ne može razumjeti njihove poruke.
-									Poruku koju pošiljaoc želi poslati primaocu zvat ćemo otvoreni tekst <i>(engl. plaintext)</i>. Pošiljaoc transformira otvoreni tekst koristeći unaprijed dogovoreni ključ. Taj postupak se naziva šifriranje, a dobiveni rezultat šifrat <i>(engl. ciphertext)</i> ili kriptogram. 
-									Nakon toga pošiljaoc pošalje šifrat preko nekog komunikacijskog kanala. Protivnik prisluškujući može doznati sadržaj šifrata, ali ne može odrediti otvoreni tekst. Za razliku od njega, primalac koji zna ključ kojim je šifrirana poruka može dešifrirati šifrat i odrediti otvoreni tekst.</p>
-									
-								</div>
-							</div>
-						</section>
-												
+						
 					</section>
 
 				<!-- Two -->
 					<section id="two" class="wrapper style3 fade-up">
 						<div class="inner">
 							<h2>Primjeri</h2>
-							<p>neki tekst</p>
 							<div id="main" class="container">
 						</header>
                 		<div class="feature-list">
-                    	<!-- Primjer -->
+                		<!-- Primjer -->
                     		<div>
                         		<div class="row">
-                            		<h3>prvi primjer</h3>
+                            		<h3>Kriptiranje (i dekriptiranje) s pomakom</h3>
                         		</div>
                         		<div class="row">
-                            		<p align="justify">opis primjera</p>
+                            		<p align="justify">Kriptiranje s pomakom temelji se na ideji da se enkripcija provodi na način da se svaki znak jasnog teksta pomakne za  \(k\)  mjesta u abecedi.</p>
                         		</div>
                         		<div class="row">
                             	<div class="compute">
                                 <script type="text/x-sage">
 @interact
+def kript_pomak(k=input_box(3)):# funkcija koja kriptira poruku
+    s = 'KRIPTOGRAFIJA'
+    str= ''
+    for c in s:
+        n = ord(c) - 65
+        n += k
+        n %= 26
+        str += chr( n + 65 )
+    print s,'->', str
+    s=str
+    str = ''
+    for c in s:
+        n = ord(c) - 65
+        n -= k
+        n %= 26
+        str += chr( n + 65 )
+    print s,'->', str								
+                                </script>
+                            	</div>
+                        		</div>
+                    		</div>
+
+                    		<!-- Primjer -->
+                    		<div>
+                        		<div class="row">
+                            		<h3>Afino kriptiranje</h3>
+                        		</div>
+                        		<div class="row">
+                            		<p align="justify">Afino kriptiranje je definirano na sljedeći način: \( f(x)=(ax+b)\%26\), pri čemu su \(a\) i \(b\) prirodni brojevi.</p>
+                        		</div>
+                        		<div class="row">
+                            	<div class="compute">
+                                <script type="text/x-sage">
+
+@interact
 
 def _(key1 =input_box(3), key2 = input_box(0)):
 
     alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    message = 'MYSECRET'
-
-    # ENCRYPT MESSAGES
-    
+    message = 'KRIPTOGRAFIJA'
+ 
     encrypted = ''
     for c in message:
         loc = alph.find (c)
@@ -257,6 +266,67 @@ encrypt_hill('XFOXEP', 8,19,11,25, 25,16)
                         	</div>
                     	</div>
 
+                    		<!-- Primjer -->
+                    		<div>
+                        		<div class="row">
+                            		<h3>prvi primjer</h3>
+                        		</div>
+                        		<div class="row">
+                            		<p align="justify">opis primjera</p>
+                        		</div>
+                        		<div class="row">
+                            	<div class="compute">
+                                <script type="text/x-sage">
+@interact
+def encrypt27 (  key1=input_box(2) , key2=input_box(0) ):
+    message = 'HOWAREYOU'
+    alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ?'
+    
+    encrypted = ''
+    for c in message :
+        loc = alph.find ( c )
+        encrypted += alph [ Mod ( key1 * loc + key2 ,27)]
+    
+    
+    print message ,'->', encrypted
+    
+    message = encrypted
+    
+    encrypted = ''
+    for c in message :
+        loc = alph.find ( c )
+        encrypted += alph [ Mod ( key1.inverse_mod (27) * loc + key2 ,27)]
+    
+    print message ,'->', encrypted			
+                                </script>
+                            	</div>
+                        		</div>
+                    		</div>
+
+                    		<!-- Primjer -->
+                    		<div>
+                        		<div class="row">
+                            		<h3>prvi primjer</h3>
+                        		</div>
+                        		<div class="row">
+                            		<p align="justify">opis primjera</p>
+                        		</div>
+                        		<div class="row">
+                            	<div class="compute">
+                                <script type="text/x-sage">
+S = AlphabeticStrings()
+E = VigenereCryptosystem(S,14)
+E
+K = S('ABCDEFGHIJKLMN')
+K
+e = E(K)
+e
+e(S("THECATINTHEHAT"))		
+                                </script>
+                            	</div>
+                        		</div>
+                    		</div>
+                    	
                     	<!-- Primjer -->
                     	<div>
                         	<div class="row">
@@ -319,7 +389,116 @@ baby_giant(29,21,107)
                         	</div>
                     	</div>
 				
-					
+					      	<!-- Primjer -->
+                    	<div>
+                        	<div class="row">
+                            	<h3>4. primjer</h3>
+                        	</div>
+                        	<div class="row">
+                            <p align="justify">opis - 4. primjer</p>
+                        	</div>
+                        	<div class="row">
+                            <div class="compute">
+                            <script type="text/x-sage">
+# text to number
+def encoding(text):
+    result = 0
+    for c in text:
+        result = 256*result +ord(c)
+    return result
+
+# number to text
+def decoding(number):
+	result = ''
+	for i in  number.digits(256):
+		result = chr(i) + result
+	return result
+
+
+#
+# Generates a valid modulus and the private and public keys for RSA
+#
+def new_rsa(secur):
+	#random primes
+	p = random_prime(10^secur, proof=True, lbound=10^(secur-1))
+	q = random_prime(10^secur, proof=True, lbound=10^(secur-1))
+	N = p*q # product
+
+	# public key = random coprime to phi(N)
+	k1 = 0
+	while ( gcd(k1,(p-1)*(q-1)) != 1):
+		k1 = ZZ.random_element( (p-1)*(q-1) ) 
+
+	# private key = inverse modulo phi(N)
+	k2 = Integer(Mod(k1,(p-1)*(q-1))^-1)
+
+	print '(Modulus, public key, private key) =', (N,k1,k2)
+
+#
+# encrypt: text, modulus, public key
+#
+def rsa_encrypt(text, N, k1):
+	textblocks = []
+	# The length of the blocks depends on the size of N
+	lblock = floor(log(N,256))
+
+	i=0
+	while i<len(text):
+
+		number = encoding(text[i:i+lblock])
+		textblocks.append( Integer(Mod(number,N)^k1) )
+		i += lblock 
+
+	print textblocks
+#
+# decrypt: list, modulus, private key
+#
+def rsa_decrypt(listblocks, N, k2):
+	result = ''
+	for i in range( len(listblocks) ):
+		result += decoding(Integer(Mod(listblocks[i],N)^k2))
+
+	print result
+    
+new_rsa(6)
+rsa_encrypt ( 'This is the message that I want to encrypt ',219266483983 , 14540633643)
+rsa_decrypt ([130485699147 , 31341128073 , 140924980646 , 79706721856 , 129273483413 ,30693030229 , 171723311418 , 25554864482 , 24138014026 ,210176748125 ,18986056854] , 219266483983 , 129377908227)
+                            </script>
+                            </div>
+                        	</div>
+                    	</div>
+
+                    	<!-- Primjer -->
+                    		<div>
+                        		<div class="row">
+                            		<h3>prvi primjer</h3>
+                        		</div>
+                        		<div class="row">
+                            		<p align="justify">opis primjera</p>
+                        		</div>
+                        		<div class="row">
+                            	<div class="compute">
+                                <script type="text/x-sage">
+#
+# Drawing of the group law
+#
+var('x,y')
+graph = implicit_plot(x^3-6*x+5-y^2, (x, -5,5),  (y, -5,5) ) 
+graph += plot( x-1, x, -3,4)
+graph += plot( x-1, x, -2,2, thickness=2)
+graph += point([1,0],size=30) + point([2,1],size=30)
+graph += point([-2,-3],size=30) + point([-2,3],size=30)
+graph += line([(-2,3),(-2,-3)], linestyle = '--', thickness=2)
+graph += text("P",(2.3,0.4),fontsize=20)
+graph += text("Q",(1.3,-0.7),fontsize=20)
+graph += text("R",(-2,-3.8),fontsize=20)
+graph += text("P+Q",(-2.4,4),fontsize=20)
+
+show(graph)			
+                                </script>
+                            	</div>
+                        		</div>
+                    		</div>
 					</section>
 
 				<!-- Three -->
