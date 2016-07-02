@@ -174,12 +174,13 @@
                         		</div>
                         		<div class="row">
                             		<p align="justify">Kriptiranje s pomakom temelji se na ideji da se enkripcija provodi na način da se svaki znak jasnog teksta pomakne za  \(k\)  mjesta u abecedi.</p>
+                            		<p align="justify">Kriptirat ćemo riječ "KRIPTOGRAFIJA".</p>
                         		</div>
                         		<div class="row">
                             	<div class="compute">
                                 <script type="text/x-sage">
 @interact
-def kript_pomak(k=input_box(3)):# funkcija koja kriptira poruku
+def kript_pomak(k=slider(0,10,1,3,"k")):# funkcija koja kriptira poruku
     s = 'KRIPTOGRAFIJA'
     str= ''
     for c in s:
@@ -199,7 +200,45 @@ def kript_pomak(k=input_box(3)):# funkcija koja kriptira poruku
                                 </script>
                             	</div>
                         		</div>
+                        		
                     		</div>
+                    		<!-- Primjer -->
+                    		<div>
+                        		<div class="row">
+                            		<h3>Cezarovo kriptiranje</h3>
+                        		</div>
+                        		<div class="row">
+                            		<p align="justify">Cezarovo kriptoranje je poseban primjer kriptiranja s pomakom pri čemu je \(k=3\).</p>
+                            		<p align="justify">Kriptirat ćemo riječ "KRIPTOGRAFIJA".</p>
+                        		</div>
+                        		<div class="row">
+                            	<div class="compute">
+                                <script type="text/x-sage">
+
+def kript_CEZAR(s):# funkcija koja kriptira poruku
+    k=3
+    str= ''
+    for c in s:
+        n = ord(c) - 65
+        n += k
+        n %= 26
+        str += chr( n + 65 )
+    print s,'->', str
+    s=str
+    str = ''
+    for c in s:
+        n = ord(c) - 65
+        n -= k
+        n %= 26
+        str += chr( n + 65 )
+    print s,'->', str	
+
+kript_CEZAR('KRIPTOGRAFIJA')							
+                                </script>
+                            	</div>
+                        		</div>
+                    		</div>
+
 
                     		<!-- Primjer -->
                     		<div>
@@ -207,7 +246,14 @@ def kript_pomak(k=input_box(3)):# funkcija koja kriptira poruku
                             		<h3>Afino kriptiranje</h3>
                         		</div>
                         		<div class="row">
-                            		<p align="justify">Afino kriptiranje je definirano na sljedeći način: \( f(x)=(ax+b)\%26\), pri čemu su \(a\) i \(b\) prirodni brojevi.</p>
+                            		<p align="justify">
+                            		Da bismo dobili barem malo sigurniju šifru nego kod kriptiranja s pomakom, možemo promatrati funkcije za šifriranje koje će uključivati više od jednog parametra. Najjednostavnija takva funkcija je afina funkcija \( f(x)=(ax+b)\). <br />
+                            		No, tu se pojavljuje jedan novi problem jer takva funkcija na skupu \(\mathbb{Z}_{26}\) ne mora imati inverz (ne mora biti injekcija). Zato parametar \(a\) ne može biti proizvoljan, već mora biti relativno prost s \(modulom 26\).<br />
+                            		Afina šifra definira se na sljedeći način:<br />
+                            		Neka je \(P = C = \mathbb{Z}_{26}\).
+                            		Neka je \(K = \{ (a,b) \in \mathbb{Z}_{26} × \mathbb{Z}_{26} : (a, 26) = 1 \}\). <br />
+                            		Za \(k = (a,b) \in K\) definiramo \(e_k(x) = (ax + b)(\text{ mod }26)\), \(d_k(y) = a^{-1}(y - b)(\text{ mod }26)\).</p>
+                            		<p align="justify">Kriptirat ćemo riječ "KRIPTOGRAFIJA"</p>
                         		</div>
                         		<div class="row">
                             	<div class="compute">
@@ -215,7 +261,7 @@ def kript_pomak(k=input_box(3)):# funkcija koja kriptira poruku
 
 @interact
 
-def _(key1 =input_box(3), key2 = input_box(0)):
+def _(key1 =slider(0,10,1,3,"a"), key2 = slider(0,10,1,0,"b")):
 
     alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     message = 'KRIPTOGRAFIJA'
@@ -229,21 +275,28 @@ def _(key1 =input_box(3), key2 = input_box(0)):
                                 </script>
                             	</div>
                         		</div>
+                        		
                     		</div>
 
 						
 						<!-- Primjer -->
                     	<div>
                         	<div class="row">
-                            	<h3>drugi primjer</h3>
+                            	<h3>Hillova šifra</h3>
                         	</div>
                         	<div class="row">
-                            <p align="justify">opis - drugi primjer</p>
+                            <p align="justify">Lester Hill je 1929. godine izumio kriptosustav kod kojeg se \(m\) uzastopnih slova otvorenog teksta zamjenjuje s \(m\) slova u šifratu. Dakle, radi se o poligramskoj šifri. Ukoliko broj slova u originalnom otvorenom tekstu nije djeljiv s \(m\), poruku trebamo nadopuniti da bismo je mogli podijeliti u blokove od po \(m\) slova. Kriptosustav je definiran na sljedeći način:<br />
+                            Neka je \(m\) fiksan prirodan broj. <br />
+                            Neka je \(P = C = (\mathbb{Z}_{26})^m\). <br />
+                            Neka je \(K = \{m × m \) invertibilne matrice nad  \(\mathbb{Z}_{26}\}\).<br />
+                            Za \(k \in K\) definiramo \(e_k(x) = xk\), \(d_k(y) = yk^{-1}\), gdje su sve operacije u prstenu \(\mathbb{Z}_{26}\).
+                            </p>
+                            <p align="justify">Kriptirat ćemo riječ "PORUKA".</p>
                         	</div>
                         	<div class="row">
                             <div class="compute">
                             <script type="text/x-sage">
-def encrypt_hill(message, key11, key12, key21, key22, key1, key2):
+def hillova_sifra(message, key11, key12, key21, key22, key1, key2):
     alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 
     encrypted = ''    
@@ -256,11 +309,8 @@ def encrypt_hill(message, key11, key12, key21, key22, key1, key2):
     print message,'->',encrypted
 
 
-# encrypt using the matrix A=[3, 5; 7, 2] and b=[1,1]
-encrypt_hill('SECRET', 3,5,7,2, 1,1)
-
-# decrypt using its inverse A^-1=[8, 19; 11, 25] and -A^-1b=[25,16]  (26)
-encrypt_hill('XFOXEP', 8,19,11,25, 25,16)
+hillova_sifra('PORUKA', 3,5,7,2, 1,1)
+hillova_sifra('MEWEFT', 8,19,11,25, 25,16)
                             </script>
                             </div>
                         	</div>
@@ -269,18 +319,19 @@ encrypt_hill('XFOXEP', 8,19,11,25, 25,16)
                     		<!-- Primjer -->
                     		<div>
                         		<div class="row">
-                            		<h3>prvi primjer</h3>
+                            		<h3>Dodavanje znaka u afinom preslikavanju</h3>
                         		</div>
                         		<div class="row">
-                            		<p align="justify">opis primjera</p>
+                            		<p align="justify">Možemo dodati novi znak u alfabet po kojem kriptiramo. Na primjer, dodamo znak * i modificiramo modulo.</p>
+                            		<p align="justify">Kriptirat ćemo riječ "PORUKA*".</p>
                         		</div>
                         		<div class="row">
                             	<div class="compute">
                                 <script type="text/x-sage">
 @interact
-def encrypt27 (  key1=input_box(2) , key2=input_box(0) ):
-    message = 'HOWAREYOU'
-    alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ?'
+def encrypt27 (  key1 =slider(1,10,1,2,"KLJUČ 1"), key2 = slider(0,10,1,0,"KLJUČ 2") ):
+    message = 'PORUKA*'
+    alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ*'
     
     encrypted = ''
     for c in message :
@@ -290,38 +341,76 @@ def encrypt27 (  key1=input_box(2) , key2=input_box(0) ):
     
     print message ,'->', encrypted
     
-    message = encrypted
-    
-    encrypted = ''
-    for c in message :
-        loc = alph.find ( c )
-        encrypted += alph [ Mod ( key1.inverse_mod (27) * loc + key2 ,27)]
-    
-    print message ,'->', encrypted			
+
                                 </script>
                             	</div>
                         		</div>
                     		</div>
-
                     		<!-- Primjer -->
                     		<div>
                         		<div class="row">
-                            		<h3>prvi primjer</h3>
+                            		
                         		</div>
                         		<div class="row">
-                            		<p align="justify">opis primjera</p>
+                            		<p align="justify">Provjerimo i dekriptiranje:</p>
                         		</div>
                         		<div class="row">
                             	<div class="compute">
                                 <script type="text/x-sage">
-S = AlphabeticStrings()
-E = VigenereCryptosystem(S,14)
-E
-K = S('ABCDEFGHIJKLMN')
-K
-e = E(K)
-e
-e(S("THECATINTHEHAT"))		
+def encrypt27 ( message , key1 , key2 ):
+	alph = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ*'
+	encrypted = ''
+	
+	for c in message :
+		loc = alph.find ( c )
+		encrypted += alph [ Mod ( key1 * loc + key2 ,27)]
+	print message ,'->', encrypted
+
+encrypt27 ('PORUKA*', 2 ,0)
+encrypt27 ('DBHNUAZ', 2.inverse_mod (27) ,0)	
+                                </script>
+                            	</div>
+                        		</div>
+                    		</div>
+                    		<!-- Primjer -->
+                    		<div>
+                        		<div class="row">
+                            		<h3>Vigènereova šifra</h3>
+                        		</div>
+                        		<div class="row">
+                            		<p align="justify">Prikazat ćemo sada Vigenèreovu šifru koja spada u <i>polialfabetske kriptosustave</i>. Naime, kod nje svako slovo otvorenog teksta može se preslikati u jedno od \(m\) mogućih slova (gdje je \(m\) duljina ključa), u ovisnosti o svom položaju unutar otvorenog teksta.<br />
+                            		Francuski diplomat Blaise de Vigenère je 1586. godine objavio knjigu <i>"Traicte de Chiffres"</i> u kojoj se nalazilo sve što se u to vrijeme znalo o kriptografiji (ali gotovo ništa o kriptoanalizi). U njoj je opisano više originalnih polialfabetskih sustava. Sustav koji se danas naziva Vigenèreova šifra definiran je na sljedeći način:<br />
+                            		Neka je \(m\) fiksan prirodan broj. <br />
+                            		Neka je \(P = C = K = (\mathbb{Z}_{26})^m\).<br />
+                            		Za ključ \(k= (k_1, k_2, \dots , k_m)\), definiramo
+\[e_k(x_1, x_2, \dots , x_m) = (x_1 +_{26} k_1, x_2 +_{26} k_2, \dots , x_m +_{26} k_m),\]
+\[d_k(y_1, y_2, \dots , y_m) = (y_1 -_{26} k_1, y_2 -_{26} k_2, \dots , y_m -_{26} k_m).\]
+									Dakle, slova otvorenog teksta pomičemo za \(k_1, k_2, \dots, k_m\) mjesta, u ovisnosti o tome na kojem se mjestu u otvorenom tekstu nalaze (preciznije, pomak ovisi o ostatku koji dobijemo kada poziciju slova podijelimo s duljinom ključa \(m\)). Kod ove su šifre osnovni elementi otvorenog teksta i šifrata "blokovi" od po \(m\) slova. No, šifriranje se zapravo provodi "slovo po slovo", pa ovdje nije nužno nadopuniti zadnji blok ako broj slova u otvorenom tekstu nije djeljiv s \(m\).</p>
+									<p align="justify">Kriptirat ćemo riječ "KRIPTOGRAFIJA".</p>
+                        		</div>
+                        		<div class="row">
+                            	<div class="compute">
+                                <script type="text/x-sage">
+@interact
+def _ (k =slider(1,10,1,5,"k")):                              
+	S = AlphabeticStrings()
+	E = VigenereCryptosystem(S,k)
+	print 'E= ',E
+	if (k==1): K=S('A')
+	if (k==2): K=S('AB')
+	if (k==3): K=S('ABC')
+	if (k==4): K=S('ABCD')
+	if (k==5): K=S('ABCDE')
+	if (k==6): K=S('ABCDEF')
+	if (k==7): K=S('ABCDEFG')
+	if (k==8): K=S('ABCDEFGH')
+	if (k==9): K=S('ABCDEFGHI')
+	if (k==10): K=S('ABCDEFGHIJ')
+	
+	
+	e = E(K)
+	print 'e= ',e
+	print 'Kriptirana riječ KRIPTOGRAFIJA je: ',e(S("KRIPTOGRAFIJA"))		
                                 </script>
                             	</div>
                         		</div>
@@ -330,16 +419,15 @@ e(S("THECATINTHEHAT"))
                     	<!-- Primjer -->
                     	<div>
                         	<div class="row">
-                            	<h3>treci primjer</h3>
+                            	<h3>Otkrivanje ključa - <i>gruba sila</i></h3>
                         	</div>
                         	<div class="row">
-                            <p align="justify">opis - treci primjer</p>
+                            <p align="justify">Ako je \(g\) primitvni korijen \(modulo\) \(p\), pri čemu je \(p\) prost broj i \(p\nmid h\), tada funkcijom \(\log(\text{ Mod }(h,p),\text{ Mod }(g,p))\) dobivamo diskretni logaritam \(0\le x < p-1\) koji je rješenje \( g^x\equiv h(\text{mod }p)\). \(x\) je traženo smisleno rješenje.</p>
+                            <p>Primjer za \( 21^x\equiv 29(\text{mod }107)\)</p>
                         	</div>
                         	<div class="row">
                             <div class="compute">
                             <script type="text/x-sage">
-# Discrete logarithm for g^x=h (p) by brute force
-
 def br_fr(h,g,p):
     for x in range(p-1):
         if Mod(g,p)^x == Mod(h,p):
@@ -356,15 +444,30 @@ br_fr(29,21,107)
                     	<!-- Primjer -->
                     	<div>
                         	<div class="row">
-                            	<h3>4. primjer</h3>
+                            	<h3>Otkrivanje ključa - <i> baby step, giant step</i></h3>
                         	</div>
                         	<div class="row">
-                            <p align="justify">opis - 4. primjer</p>
+                            <p align="justify">Radimo na \( 3^x\equiv 62(\text{mod }101)\). Računamo najprije \(3^i\) i \((62^{-10})^i\) za \(i=0, \dots, 9\)</p>
                         	</div>
                         	<div class="row">
                             <div class="compute">
                             <script type="text/x-sage">
-# Discrete logarithm for g^x=h (p) by baby-step giant-step
+n = 10
+g = Mod (3 ,101)
+gn = Mod (3 ,101)^( - n )
+print 'i', 'b', 'g'
+for i in range (10):
+	print i , g ^i , 62* gn ^ i
+
+                            </script>
+                            </div>
+                        	</div>
+                        	<div class="row">
+                            <p align="justify">Vidimo da se broj \(41\) u trećem stupcu pojavljuje na \(5\). mjestu, a u drugom stupcu na \(6\). mjestu. </p>
+                        	</div>
+                        	<div class="row">
+                            <div class="compute">
+                            <script type="text/x-sage">
 
 def baby_giant(h,g,p):
     baby = [1]
@@ -379,11 +482,11 @@ def baby_giant(h,g,p):
         giant.append( Mod(giant[j-1]*g,p) )
     
     for inters in set(baby).intersection( set(giant) ):
-        print 'i =', baby.index(inters)
-        print 'j =', giant.index(inters)
+        
         print 'x =',  baby.index(inters)+n*giant.index(inters)
-    
-baby_giant(29,21,107)
+
+baby_giant(62,3,101)
+
                             </script>
                             </div>
                         	</div>
@@ -392,10 +495,17 @@ baby_giant(29,21,107)
 					      	<!-- Primjer -->
                     	<div>
                         	<div class="row">
-                            	<h3>4. primjer</h3>
+                            	<h3>RSA kriptostustav</h3>
                         	</div>
                         	<div class="row">
-                            <p align="justify">opis - 4. primjer</p>
+                            <p align="justify">Prvi, a ujedno i najpopularniji i najšire korišteni kriptosustav s javnim ključem je RSA kriptosustav koji su izumili Ron Rivest, Adi Shamir i Len Adleman 1977. godine. 
+                            Njegova sigurnost je zasnovana na teškoći faktorizacije velikih prirodnih brojeva. Slijedi precizna definicija RSA kriptosustava.<br />
+                            Neka je \(n = p \cdot q\), gdje su \(p\) i \(q\) prosti brojevi. <br />
+                            Neka je \(P = C = \mathbb{Z}_n\).<br />
+                            Neka je \(K = \{ (n, p, q, d, e) : n = pq, \, p, q \text{ prosti}, \,de = 1 (\text{ mod } \phi(n)) \}\).<br />
+                            Za \(k = (n, p, q, d, e)  \in K\) definiramo \(e_k(x) = x^e(\text{ mod }n)\)   i   \(d_k(y) = y^d (\text{ mod }n)\),   \(x, y  \in \mathbb{Z}_n\).<br />
+                            Vrijednosti \(n\) i \(e\) su javne, a vrijednosti \(p\), \(q\) i \(d\) su tajne. Ovdje je \(\phi(n)\) Eulerova funkcija, tj. broj brojeva u nizu \(1, 2, \dots, n\) koji su relativno prosti s \(n\). U našem konkretnom slučaju je \(\phi(n) =\phi(pq) = (p - 1)(q - 1)\).</p>
+                            <p>Primjer:</p>
                         	</div>
                         	<div class="row">
                             <div class="compute">
@@ -414,10 +524,8 @@ def decoding(number):
 		result = chr(i) + result
 	return result
 
-
-#
 # Generates a valid modulus and the private and public keys for RSA
-#
+
 def new_rsa(secur):
 	#random primes
 	p = random_prime(10^secur, proof=True, lbound=10^(secur-1))
@@ -434,9 +542,9 @@ def new_rsa(secur):
 
 	print '(Modulus, public key, private key) =', (N,k1,k2)
 
-#
+
 # encrypt: text, modulus, public key
-#
+
 def rsa_encrypt(text, N, k1):
 	textblocks = []
 	# The length of the blocks depends on the size of N
@@ -450,9 +558,9 @@ def rsa_encrypt(text, N, k1):
 		i += lblock 
 
 	print textblocks
-#
+
 # decrypt: list, modulus, private key
-#
+
 def rsa_decrypt(listblocks, N, k2):
 	result = ''
 	for i in range( len(listblocks) ):
@@ -471,17 +579,17 @@ rsa_decrypt ([130485699147 , 31341128073 , 140924980646 , 79706721856 , 12927348
                     	<!-- Primjer -->
                     		<div>
                         		<div class="row">
-                            		<h3>prvi primjer</h3>
+                            		<h3>The group law</h3>
                         		</div>
                         		<div class="row">
-                            		<p align="justify">opis primjera</p>
+                            		<p align="justify">Ako su nam dane \(P\) i \(Q\), točke na eliptičkoj krivulji nad \(\mathbb{R}\), definiramo \(P+G\) kao zrcalnu sliku trećeg presjecišta pravca kroz \(P\) i \(Q\) obzirom na \(X\)-os. Više <a href="https://en.wikipedia.org/wiki/Elliptic_curve" target="_blank">ovdje</a>.</p>
+                            		<p>Primjer na krivulji \(x^3-6x+5-y^2\) uz \(P=(2.3,0.4)\) i \(Q=(1.3,-0.7)\)</p>
+
                         		</div>
                         		<div class="row">
                             	<div class="compute">
                                 <script type="text/x-sage">
-#
-# Drawing of the group law
-#
+
 var('x,y')
 graph = implicit_plot(x^3-6*x+5-y^2, (x, -5,5),  (y, -5,5) ) 
 graph += plot( x-1, x, -3,4)
@@ -505,7 +613,7 @@ show(graph)
 					<section id="three" class="wrapper style1 fade-up">
 						<div class="inner">
 							<h2>Kontaktiraj nas!</h2>
-							<p>Pošalji nam mail na <a href="mailto:info@kriptografija.hr">info@kriptografija.hr</a> ili nam se obrati putem kontakt forme u nastavku.</p>
+							<p>Pošalji nam mail na info@kriptografija.hr ili nam se obrati putem kontakt forme u nastavku.</p>
 							<div class="split style1">
 								<section>
 									<form method="post" action="#">
@@ -539,7 +647,7 @@ show(graph)
 									<ul class="contact">
 										<li>
 											<h3>Adresa</h3>
-											<span>PMF Zagreb<br />
+											<span><a href="https://www.math.pmf.unizg.hr" target="_blank">PMF Zagreb</a><br />
 											Bijenička cesta 30<br />
 											10 000 Zagreb, Hrvatska</span>
 										</li>
@@ -551,11 +659,11 @@ show(graph)
 										<li>
 											<h3>Društvene mreže</h3>
 											<ul class="icons">
-											<a href="http://www.w3schools.com/html/"><li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li></a>
-											
-												<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-												<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-												<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+												<li><a href="http://www.twitter.com/" target="_blank" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+												<li><a href="http://www.facebook.com/" target="_blank" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+												<li><a href="http://www.instagram.com/" target="_blank" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+												<li><a href="http://www.github.com/" target="_blank" class="icon fa-github"><span class="label">Github</span></a></li>
+												
 
 											</ul>
 										</li>
