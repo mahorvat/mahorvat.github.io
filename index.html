@@ -248,7 +248,7 @@ kript_CEZAR('KRIPTOGRAFIJA')
                         		<div class="row">
                             		<p align="justify">
                             		Da bismo dobili barem malo sigurniju šifru nego kod kriptiranja s pomakom, možemo promatrati funkcije za šifriranje koje će uključivati više od jednog parametra. Najjednostavnija takva funkcija je afina funkcija \( f(x)=(ax+b)\). <br />
-                            		No, tu se pojavljuje jedan novi problem jer takva funkcija na skupu \(\mathbb{Z}_{26}\) ne mora imati inverz (ne mora biti injekcija). Zato parametar \(a\) ne može biti proizvoljan, već mora biti relativno prost s \(modulom 26\).<br />
+                            		No, tu se pojavljuje jedan novi problem jer takva funkcija na skupu \(\mathbb{Z}_{26}\) ne mora imati inverz (ne mora biti injekcija). Zato parametar \(a\) ne može biti proizvoljan, već mora biti relativno prost s <i>modulom</i> \( 26\).<br />
                             		Afina šifra definira se na sljedeći način:<br />
                             		Neka je \(P = C = \mathbb{Z}_{26}\).
                             		Neka je \(K = \{ (a,b) \in \mathbb{Z}_{26} × \mathbb{Z}_{26} : (a, 26) = 1 \}\). <br />
@@ -288,7 +288,7 @@ def _(key1 =slider(0,10,1,3,"a"), key2 = slider(0,10,1,0,"b")):
                             <p align="justify">Lester Hill je 1929. godine izumio kriptosustav kod kojeg se \(m\) uzastopnih slova otvorenog teksta zamjenjuje s \(m\) slova u šifratu. Dakle, radi se o poligramskoj šifri. Ukoliko broj slova u originalnom otvorenom tekstu nije djeljiv s \(m\), poruku trebamo nadopuniti da bismo je mogli podijeliti u blokove od po \(m\) slova. Kriptosustav je definiran na sljedeći način:<br />
                             Neka je \(m\) fiksan prirodan broj. <br />
                             Neka je \(P = C = (\mathbb{Z}_{26})^m\). <br />
-                            Neka je \(K = \{m × m \) invertibilne matrice nad  \(\mathbb{Z}_{26}\}\).<br />
+                            Neka je \(K = \{m × m  \text{ invertibilne matrice nad }   \mathbb{Z}_{26}\}\).<br />
                             Za \(k \in K\) definiramo \(e_k(x) = xk\), \(d_k(y) = yk^{-1}\), gdje su sve operacije u prstenu \(\mathbb{Z}_{26}\).
                             </p>
                             <p align="justify">Kriptirat ćemo riječ "PORUKA".</p>
@@ -382,9 +382,9 @@ encrypt27 ('DBHNUAZ', 2.inverse_mod (27) ,0)
                             		Francuski diplomat Blaise de Vigenère je 1586. godine objavio knjigu <i>"Traicte de Chiffres"</i> u kojoj se nalazilo sve što se u to vrijeme znalo o kriptografiji (ali gotovo ništa o kriptoanalizi). U njoj je opisano više originalnih polialfabetskih sustava. Sustav koji se danas naziva Vigenèreova šifra definiran je na sljedeći način:<br />
                             		Neka je \(m\) fiksan prirodan broj. <br />
                             		Neka je \(P = C = K = (\mathbb{Z}_{26})^m\).<br />
-                            		Za ključ \(k= (k_1, k_2, \dots , k_m)\), definiramo
-\[e_k(x_1, x_2, \dots , x_m) = (x_1 +_{26} k_1, x_2 +_{26} k_2, \dots , x_m +_{26} k_m),\]
-\[d_k(y_1, y_2, \dots , y_m) = (y_1 -_{26} k_1, y_2 -_{26} k_2, \dots , y_m -_{26} k_m).\]
+                            		Za ključ \(k= (k_1, k_2, \dots , k_m)\), definiramo<br />
+\(e_k(x_1, x_2, \dots , x_m) = (x_1 +_{26} k_1, x_2 +_{26} k_2, \dots , x_m +_{26} k_m)\),<br />
+\(d_k(y_1, y_2, \dots , y_m) = (y_1 -_{26} k_1, y_2 -_{26} k_2, \dots , y_m -_{26} k_m)\).<br />
 									Dakle, slova otvorenog teksta pomičemo za \(k_1, k_2, \dots, k_m\) mjesta, u ovisnosti o tome na kojem se mjestu u otvorenom tekstu nalaze (preciznije, pomak ovisi o ostatku koji dobijemo kada poziciju slova podijelimo s duljinom ključa \(m\)). Kod ove su šifre osnovni elementi otvorenog teksta i šifrata "blokovi" od po \(m\) slova. No, šifriranje se zapravo provodi "slovo po slovo", pa ovdje nije nužno nadopuniti zadnji blok ako broj slova u otvorenom tekstu nije djeljiv s \(m\).</p>
 									<p align="justify">Kriptirat ćemo riječ "KRIPTOGRAFIJA".</p>
                         		</div>
@@ -422,7 +422,7 @@ def _ (k =slider(1,10,1,5,"k")):
                             	<h3>Otkrivanje ključa - <i>gruba sila</i></h3>
                         	</div>
                         	<div class="row">
-                            <p align="justify">Ako je \(g\) primitvni korijen \(modulo\) \(p\), pri čemu je \(p\) prost broj i \(p\nmid h\), tada funkcijom \(\log(\text{ Mod }(h,p),\text{ Mod }(g,p))\) dobivamo diskretni logaritam \(0\le x < p-1\) koji je rješenje \( g^x\equiv h(\text{mod }p)\). \(x\) je traženo smisleno rješenje.</p>
+                            <p align="justify">Ako je \(g\) primitvni korijen <i>modulo</i> \(p\), pri čemu je \(p\) prost broj i \(p\nmid h\), tada funkcijom \(\log(\text{ Mod }(h,p),\text{ Mod }(g,p))\) dobivamo diskretni logaritam \(0\le x < p-1\) koji je rješenje \( g^x\equiv h(\text{mod }p)\). \(x\) je traženo smisleno rješenje.</p>
                             <p>Primjer za \( 21^x\equiv 29(\text{mod }107)\)</p>
                         	</div>
                         	<div class="row">
@@ -502,71 +502,71 @@ baby_giant(62,3,101)
                             Njegova sigurnost je zasnovana na teškoći faktorizacije velikih prirodnih brojeva. Slijedi precizna definicija RSA kriptosustava.<br />
                             Neka je \(n = p \cdot q\), gdje su \(p\) i \(q\) prosti brojevi. <br />
                             Neka je \(P = C = \mathbb{Z}_n\).<br />
-                            Neka je \(K = \{ (n, p, q, d, e) : n = pq, \, p, q \text{ prosti}, \,de = 1 (\text{ mod } \phi(n)) \}\).<br />
+                            Neka je \(K = \{ (n, p, q, d, e) : n = pq, \, p, q \text{ prosti, }de = 1 (\text{ mod } \phi(n)) \}\).<br />
                             Za \(k = (n, p, q, d, e)  \in K\) definiramo \(e_k(x) = x^e(\text{ mod }n)\)   i   \(d_k(y) = y^d (\text{ mod }n)\),   \(x, y  \in \mathbb{Z}_n\).<br />
                             Vrijednosti \(n\) i \(e\) su javne, a vrijednosti \(p\), \(q\) i \(d\) su tajne. Ovdje je \(\phi(n)\) Eulerova funkcija, tj. broj brojeva u nizu \(1, 2, \dots, n\) koji su relativno prosti s \(n\). U našem konkretnom slučaju je \(\phi(n) =\phi(pq) = (p - 1)(q - 1)\).</p>
-                            <p>Primjer:</p>
+                            <p>Primjer: Kriptiranje i dekriptiranje poruke - 'This is the message that I want to encrypt'</p>
                         	</div>
                         	<div class="row">
                             <div class="compute">
                             <script type="text/x-sage">
-# text to number
+# kodiranje teksta u broj
 def encoding(text):
     result = 0
     for c in text:
         result = 256*result +ord(c)
     return result
 
-# number to text
+# de(kodiranje) broja u tekst
 def decoding(number):
 	result = ''
 	for i in  number.digits(256):
 		result = chr(i) + result
 	return result
 
-# Generates a valid modulus and the private and public keys for RSA
+# generiranje smislenog modula, privatnog (tajnog)i javnog kljuca za RSA
 
 def new_rsa(secur):
-	#random primes
+	#slucajni prost broj
 	p = random_prime(10^secur, proof=True, lbound=10^(secur-1))
 	q = random_prime(10^secur, proof=True, lbound=10^(secur-1))
 	N = p*q # product
 
-	# public key = random coprime to phi(N)
+	# javni kljuc - slucajni prost broj od phi(N)
 	k1 = 0
 	while ( gcd(k1,(p-1)*(q-1)) != 1):
 		k1 = ZZ.random_element( (p-1)*(q-1) ) 
 
-	# private key = inverse modulo phi(N)
+	# privatni kljuc = invezni modul od phi(N)
 	k2 = Integer(Mod(k1,(p-1)*(q-1))^-1)
 
-	print '(Modulus, public key, private key) =', (N,k1,k2)
+	print '(Modul, javni ključ, privatni ključ) =', (N,k1,k2)
 
 
-# encrypt: text, modulus, public key
+# kriptiranje: text, modul, javni ključ
 
 def rsa_encrypt(text, N, k1):
 	textblocks = []
-	# The length of the blocks depends on the size of N
+	
 	lblock = floor(log(N,256))
 
 	i=0
-	while i<len(text):
+	while i< len(text):
 
 		number = encoding(text[i:i+lblock])
 		textblocks.append( Integer(Mod(number,N)^k1) )
 		i += lblock 
 
-	print textblocks
+	print 'Kriptiranje: ',textblocks
 
-# decrypt: list, modulus, private key
+# dekriptiranje: lista, modul, javni ključ
 
 def rsa_decrypt(listblocks, N, k2):
 	result = ''
 	for i in range( len(listblocks) ):
 		result += decoding(Integer(Mod(listblocks[i],N)^k2))
 
-	print result
+	print 'Dekriptiranje: ',result
     
 new_rsa(6)
 rsa_encrypt ( 'This is the message that I want to encrypt ',219266483983 , 14540633643)
